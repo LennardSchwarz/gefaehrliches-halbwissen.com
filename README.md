@@ -15,6 +15,16 @@ hosted on github pages with hover CNAME entry as alias for domain.
 
 push to main. GH Actions build and deploy. 
 
+## gh pages Actions
+https://github.com/marketplace/actions/vue-to-github-pages
+
+## hover
+### CNAME
+cname entry for "www.gefaerliches-halbwissen.com" to gh pages.
+
+### subdomain rediretion
+"gefaerliches-halbwissen.com" redirects to "www.gefaerliches-halbwissen.com".
+
 # Design
 ## Favicon
 https://favicon.io/favicon-generator/

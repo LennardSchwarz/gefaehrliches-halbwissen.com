@@ -13,7 +13,7 @@ npm run serve
 # Prod
 hosted on github pages with hover CNAME entry as alias for domain.
 
-push to main. GH Actions build and deploy.
+push to main. GH Actions build and deploy. 
 
 # Design
 ## Favicon

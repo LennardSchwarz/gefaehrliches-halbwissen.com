@@ -19,11 +19,14 @@ push to main. GH Actions build and deploy.
 https://github.com/marketplace/actions/vue-to-github-pages
 
 ## hover
-### CNAME
-cname entry for "www.gefaerliches-halbwissen.com" to gh pages.
+Setup like from here:
+https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 
-### subdomain rediretion
-"gefaerliches-halbwissen.com" redirects to "www.gefaerliches-halbwissen.com".
+## CNAME
+CNAME entry for www to gh page.
+
+## A records
+A records to point to GH pages DNS servers to correctly forward "gefaehrliches-halbwissen.com" to gh pages.
 
 # Design
 ## Favicon

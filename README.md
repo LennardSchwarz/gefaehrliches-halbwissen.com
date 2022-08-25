@@ -1,8 +1,10 @@
-# lennardschwarz.me
-Code for the landing page lennardschwarz.me
+# gefaehrliches-halbwissen.com
+Code for the website gefaehrliches-halbwissen.com
 
 # Template
-Vue js with two components and particles bg for vue
+Vue js with two components:
+-particles bg for vue
+-body
 
 # Dev Process
 ## Dev
@@ -11,15 +13,13 @@ npm run serve
 ```
 
 # Prod
-hosted on github pages with hover CNAME entry as alias for domain.
-
 push to main. GH Actions build and deploy. 
 
 ## gh pages Actions
 https://github.com/marketplace/actions/vue-to-github-pages
 
 ## hover
-Setup like from here:
+Setup like this:
 https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 
 ## CNAME

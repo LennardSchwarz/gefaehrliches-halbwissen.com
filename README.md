@@ -37,3 +37,8 @@ see zz_assets folder
 ## Color pallette
 Cappuccino
 https://www.color-hex.com/color-palette/389
+
+
+
+# Docker Backend Wordpress
+Backend is hosted as a wordpress docker container with wp plugin.

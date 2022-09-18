@@ -4,7 +4,7 @@
     
     <!-- Button -->
     <form>
-      <button class="button-18" v-on:click="rickroll()">Bilde dich</button>
+      <button class="button-18" @click="rickroll()">Bilde dich</button>
     </form>
 
 
@@ -21,12 +21,13 @@ export default {
   rickroll () {
     window.open(
       "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank"
+      //"https://podcast.gefaehrliches-halbwissen.com"
       );
     }
   },
   mounted() {
     // methods can be called in lifecycle hooks, or other methods!
-    this.rickroll()
+    
   }
 };
 

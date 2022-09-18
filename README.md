@@ -15,6 +15,9 @@ npm run serve
 # Prod
 push to main. GH Actions build and deploy. 
 
+### set custom domain
+Due to Action setup, you have to set the custom domain in the github settings manually after every run.
+
 ## gh pages Actions
 https://github.com/marketplace/actions/vue-to-github-pages
 

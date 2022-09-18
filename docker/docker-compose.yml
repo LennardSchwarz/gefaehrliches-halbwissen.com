@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: "wordpress-gh-podcast-db"
+    # We use a mariadb image which supports both amd64 & arm64 architecture
+    image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following line
+    #image: mysql:8.0.27
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - WP-gh-podcast-volume:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Annuity42-Cola-Wise-Unsheathe111
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=Annuity5-Cola-Wise-Unsheathe
+    networks:
+      - wordpress-gh-podcast # this is necessary to make containers talk to each other
+    expose:
+      - 3306
+      - 33060
+    labels:
+      - traefik.enable=false # to make sure to not expose db to external network. Not necessasry because traefik doesnt expose by default
+
+  wordpress:
+    container_name: "wordpress-gh-podcast"
+    image: wordpress:latest
+    #ports:
+     # - 80 # don't bind ports via docker compose. Traffic is routed for domain to port 80 by traefik
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=Annuity5-Cola-Wise-Unsheathe
+      - WORDPRESS_DB_NAME=wordpress
+    networks:
+      - traefik-proxy # traefik reverse proxy
+      - wordpress-gh-podcast # internal network
+    labels:
+      - "traefik.enable=true" # enable traefik for this docker container
+      - "traefik.http.routers.WP-gh-podcast.rule=Host(`podcast.gefaehrliches-halbwissen.com`)" # set router name and subdomain
+      - "traefik.http.routers.WP-gh-podcast.rule=Host(`podcast.lennardschwarz.me`)" # set router name and subdomain
+      - "traefik.http.routers.WP-gh-podcast.entrypoints=websecure" # set entry points (443: websecure)
+      - "traefik.http.services.WP-gh-podcast.loadbalancer.server.port=80" # set port that is fowarded to internally by treafik when trafic take this route
+      - "traefik.http.routers.WP-gh-podcast.tls.certresolver=letsencryptresolver" # set ssl resolver to use for this route
+  
+networks:
+  traefik-proxy:
+    external: true # use already existing traefik reverse proxy network
+  wordpress-gh-podcast: 
+    driver: bridge # default value
+
+volumes:
+  WP-gh-podcast-volume:

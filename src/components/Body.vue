@@ -102,7 +102,7 @@ h3 {
 }
 
 .body {
-  margin: 200px auto;
+  margin: auto;
   text-align: center;
   padding: 20px 20px;
   border-radius: 8px;

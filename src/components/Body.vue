@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>gefährliches halbwissen.</h1>
+    <h1>gefaehrliches halbwissen.</h1>
     
     <!-- Button -->
     <form>

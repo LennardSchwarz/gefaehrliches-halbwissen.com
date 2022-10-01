@@ -35,6 +35,8 @@ services:
       - WORDPRESS_DB_USER=wordpress
       - WORDPRESS_DB_PASSWORD=Annuity5-Cola-Wise-Unsheathe
       - WORDPRESS_DB_NAME=wordpress
+    volumes:
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini # to tweak max upload limits
     networks:
       - traefik-proxy # traefik reverse proxy
       - wordpress-gh-podcast # internal network

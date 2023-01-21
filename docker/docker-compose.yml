@@ -12,10 +12,10 @@ services:
       - WP-gh-podcast-volume:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=Annuity42-Cola-Wise-Unsheathe111
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=wordpress
       - MYSQL_USER=wordpress
-      - MYSQL_PASSWORD=Annuity5-Cola-Wise-Unsheathe
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     networks:
       - wordpress-gh-podcast # this is necessary to make containers talk to each other
     expose:
@@ -33,7 +33,7 @@ services:
     environment:
       - WORDPRESS_DB_HOST=db
       - WORDPRESS_DB_USER=wordpress
-      - WORDPRESS_DB_PASSWORD=Annuity5-Cola-Wise-Unsheathe
+      - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
       - WORDPRESS_DB_NAME=wordpress
     volumes:
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini # to tweak max upload limits
@@ -46,10 +46,6 @@ services:
       - "traefik.http.routers.WP-gh-podcast.entrypoints=websecure" # set entry points (443: websecure)
       - "traefik.http.services.WP-gh-podcast.loadbalancer.server.port=80" # set port that is fowarded to internally by treafik when trafic take this route
       - "traefik.http.routers.WP-gh-podcast.tls.certresolver=letsencryptresolver" # set ssl resolver to use for this route
-      # - "traefik.http.routers.WP-gh-podcast-dev.rule=Host(`podcast.lennardschwarz.me`)" # set router name and subdomain
-      # - "traefik.http.routers.WP-gh-podcast-dev.entrypoints=websecure" # set entry points (443: websecure)
-      # - "traefik.http.services.WP-gh-podcast-dev.loadbalancer.server.port=80" # set port that is fowarded to internally by treafik when trafic take this route
-      # - "traefik.http.routers.WP-gh-podcast-dev.tls.certresolver=letsencryptresolver" # set ssl resolver to use for this route
   
 networks:
   traefik-proxy:
